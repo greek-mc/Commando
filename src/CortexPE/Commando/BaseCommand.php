@@ -38,6 +38,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\lang\Translatable;
 use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginBase;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\utils\TextFormat;
 use function array_shift;
@@ -75,10 +76,10 @@ abstract class BaseCommand extends Command implements IArgumentable, IRunnable, 
 	private array $constraints = [];
 
 	/** @var Plugin */
-	protected Plugin $plugin;
+	protected PluginBase $plugin;
 
 	public function __construct(
-		Plugin $plugin,
+		PluginBase $plugin,
 		string $name,
 		Translatable|string $description = "",
 		array $aliases = []
@@ -91,7 +92,7 @@ abstract class BaseCommand extends Command implements IArgumentable, IRunnable, 
 		$this->usageMessage = $this->generateUsageMessage();
 	}
 
-	public function getOwningPlugin(): Plugin {
+	public function getOwningPlugin(): PluginBase {
 		return $this->plugin;
 	}
 
