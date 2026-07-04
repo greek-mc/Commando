@@ -157,12 +157,7 @@ trait ArgumentableTrait{
 				}
 			}
 		}
-		if($offset < count($rawArgs)) { // this means that the arguments our user sent is more than the needed amount
-			$return["errors"][] = [
-				"code" => BaseCommand::ERR_TOO_MANY_ARGUMENTS,
-				"data" => []
-			];
-		}
+
 		if($required > 0) {// We still have more unfilled required arguments
 			$return["errors"][] = [
 				"code" => BaseCommand::ERR_INSUFFICIENT_ARGUMENTS,
